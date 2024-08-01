@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+
+ <h1> Liste des inscrits </h1>
+
+ <ul>
+ {% for user in users %}
+    <li> pseudo: {{user.pseudo}} region : {{user.regions.name}} departement : {{user.departements.name}}  </li>
+ {% endfor %}
+ </ul>
+
+    
+    
+    {{form_start(userform)}}
+
+    {{form_row(userform.pseudo)}}
+    {{form_row(userform.email)}}
+    {{form_row(userform.sexe)}}
+    {{form_row(userform.age)}}
+    {{form_row(userform.regions)}}
+    {{form_row(userform.departements)}}
+  
+
+    <button class="btn" type="submit">Envoyez</button>
+
+    {{form_end(userform)}}
+
+
+{% endblock %}
